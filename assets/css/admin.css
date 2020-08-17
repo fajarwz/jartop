@@ -1,0 +1,21 @@
+.form-group.required .control-label:after {
+  content: " *";
+  color: red;
+}
+
+.image-table {
+  max-width: 100px;
+}
+
+#image-preview-container {
+  max-height: 100px;
+}
+
+.btn-action-3 {
+  min-width: 150px;
+}
+
+.btn-action-2 {
+  min-width: 10px;
+}
+
