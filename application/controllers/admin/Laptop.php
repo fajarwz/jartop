@@ -5,7 +5,7 @@ class Laptop extends CI_Controller {
 	 
 	public function index() {
 		$data['laptop'] 	= $this->jartop_model->get_data('laptop')->result();
-		$data['no'] 		= 1;
+		$data['no'] 			= 1;
 		$this->load->view('templates_admin/header');
 		$this->load->view('templates_admin/navbar');
 		$this->load->view('admin/laptop/index', $data);
@@ -25,7 +25,7 @@ class Laptop extends CI_Controller {
 		$this->custom_rules();
 		$this->custom_messages();
 
-		if($this->form_validation->run() == FALSE) {
+		if($this->form_validation->run() === FALSE) {
 			$this->tambah();
 		} else {
 			$merk									= $this->input->post('merk');
@@ -57,7 +57,7 @@ class Laptop extends CI_Controller {
 				'status'							=> $status
 			);
 
-			if($gambar != '') {
+			if($gambar !== '') {
 				$config['upload_path']		= './assets/upload/';
 				$config['allowed_types']	= 'jpg|jpeg|png|tiff';
 
@@ -74,7 +74,7 @@ class Laptop extends CI_Controller {
 
 			if($this->jartop_model->insert_data('laptop', $data)){
 				$this->flash_success_tambah();
-				redirect('admin/laptop');
+				redirect('admin/laptop/index');
 			}
 		}
 	}
@@ -124,7 +124,7 @@ class Laptop extends CI_Controller {
 				'status'							=> $status
 			);
 
-			if($gambar != '') {
+			if($gambar !== '') {
 				$config['upload_path']		= './assets/upload/';
 				$config['allowed_types']	= 'jpg|jpeg|png|tiff';
 
@@ -139,9 +139,9 @@ class Laptop extends CI_Controller {
 				$data['gambar']	= $gambar;
 			}
 
-			if($this->jartop_model->edit('laptop', $data, $id)){
+			if($this->jartop_model->edit_data('laptop', $data, $id)){
 				$this->flash_success_edit();
-				redirect('admin/laptop');
+				redirect('admin/laptop/index');
 			}
 		}
 	}
@@ -149,7 +149,7 @@ class Laptop extends CI_Controller {
 	public function hapus($id) {
 		if($this->jartop_model->delete_data('laptop', $id)){
 			$this->flash_success_hapus();
-			redirect('admin/laptop');
+			redirect('admin/laptop/index');
 		}
 	}
 

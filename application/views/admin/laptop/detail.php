@@ -1,11 +1,11 @@
 <div class="main-content">
   <section class="section">
     <div class="section-header">
-      <h1>Detail Mobil</h1>
+      <h1>Detail Laptop</h1>
       <div class="section-header-breadcrumb">
         <div class="breadcrumb-item"><a href="#">Menu</a></div>
-        <div class="breadcrumb-item"><a href="<?php echo base_url('admin/data_mobil/index') ?>">Data Mobil</a></div>
-        <div class="breadcrumb-item active">Detail Mobil</div>
+        <div class="breadcrumb-item"><a href="<?php echo base_url('admin/laptop/index') ?>">Data Laptop</a></div>
+        <div class="breadcrumb-item active">Detail Laptop</div>
       </div>
     </div>
 
@@ -16,19 +16,17 @@
 
             <div class="card">
               <div class="card-body">
-              
-                <?php foreach($mobil as $mb) : ?>
 
                   <table class="table table-bordered" width="100%" cellspacing="0">
                       <thead>
-                        <?php foreach($mobil as $mb) : ?>
+                        <?php foreach($laptop as $lp) : ?>
 
                           <tr>
                             <th>Gambar</th>
                             <td>
                               <img 
-                                src="<?php echo base_url('assets/upload/'.$mb->gambar)?>" 
-                                alt="<?php echo $mb->gambar?>" 
+                                src="<?php echo base_url('assets/upload/'.$lp->gambar)?>" 
+                                alt="<?php echo $lp->gambar?>" 
                                 class="img-fluid"
                               >
                             </td>
@@ -36,52 +34,64 @@
 
                           <tr>
                             <th>Merk</th>
-                            <td><?php echo $mb->merk ?></td>
+                            <td><?php echo $lp->merk ?></td>
                           </tr>
 
                           <tr>
-                            <th>Tipe</th>
-                            <td>
-                              <?php 
-                                foreach($tipe as $tp) : 
-                                  if($mb->id_tipe == $tp->id) :
-                                    echo $tp->nama;
-                                  endif;
-                                endforeach; 
-                              ?>
-                            </td>
+                            <th>Processor</th>
+                            <td><?php echo $lp->processor ?></td>
                           </tr>
 
                           <tr>
-                            <th>Kapasitas</th>
-                            <td><?php echo $mb->kapasitas ?> orang</td>
+                            <th>Storage</th>
+                            <td><?php echo $lp->storage ?></td>
                           </tr>
                             
                           <tr>
-                            <th>No. Plat</th>
-                            <td><?php echo $mb->no_plat ?></td>
+                            <th>RAM</th>
+                            <td><?php echo $lp->ram ?></td>
                           </tr>
                             
                           <tr>
-                            <th>Warna</th>
-                            <td><?php echo $mb->warna ?></td>
+                            <th>VGA</th>
+                            <td><?php echo $lp->vga ?></td>
                           </tr>
 
                           <tr>
-                            <th>Tahun</th>
-                            <td><?php echo $mb->tahun ?></td>
+                            <th>Ukuran Layar</th>
+                            <td><?php echo $lp->ukuran_layar ?></td>
+                          </tr>
+
+                          <tr>
+                            <th>OS</th>
+                            <td><?php echo $lp->os ?></td>
+                          </tr>
+
+                          <tr>
+                            <th>Port USB</th>
+                            <td><?php echo $lp->port_usb ?></td>
+                          </tr>
+
+                          <tr>
+                            <th>CD-ROM</th>
+                            <td><?php echo $lp->is_cd_rom ?></td>
+                          </tr>
+
+                          <tr>
+                            <th>Daya Tahan Baterai</th>
+                            <td><?php echo $lp->daya_tahan_baterai ?></td>
                           </tr>
                             
                           <tr>
                             <th>Harga Sewa</th>
-                            <td>Rp. <?php echo $mb->harga_sewa ?>/jam</td>
+                            <td>Rp. <?php echo $lp->harga_sewa ?>/hari</td>
                           </tr>
 
                           <tr>
                             <th>Status</th>
                             <td>
                               <?php
-                                echo $mb->status == 1 ? 
+                                echo $lp->status === "Tersedia" ? 
                                 "<span class='badge badge-primary'>Tersedia</span>" : 
                                 "<span class='badge badge-danger'>Tidak Tersedia</span>";
                               ?>
@@ -92,15 +102,15 @@
                             <th style="width: 180px;">Action</th>
                             <td>
 
-                              <a href="<?php echo base_url('admin/data_mobil/detail_mobil/'.$mb->id) ?>" class="btn btn-info" title="Detail">
+                              <a href="<?php echo base_url('admin/laptop/detail/'.$lp->id) ?>" class="btn btn-info" title="Detail">
                                 <i class="fa fa-eye"></i>
                               </a>
 
-                              <a href="<?php echo base_url('admin/data_mobil/edit_mobil/'.$mb->id) ?>" class="btn btn-primary" title="Edit">
+                              <a href="<?php echo base_url('admin/laptop/edit/'.$lp->id) ?>" class="btn btn-primary" title="Edit">
                                 <i class="fa fa-pencil-alt"></i>
                               </a>
 
-                              <a href="<?php echo base_url('admin/data_mobil/hapus_mobil/'.$mb->id) ?>" class="btn btn-danger" title="Hapus">
+                              <a href="<?php echo base_url('admin/laptop/hapus/'.$lp->id) ?>" class="btn btn-danger" title="Hapus">
                                 <i class="fa fa-trash"></i>
                               </a>
 
@@ -111,8 +121,6 @@
                       </thead>
                       
                     </table>
-
-                <?php endforeach ?>
               
               </div>
               <!-- card-body  -->

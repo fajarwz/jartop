@@ -1,10 +1,10 @@
 <div class="main-sidebar">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-      <a href="#">AMBIL</a>
+      <a href="#">JARTOP</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
-      <a href="#">AMB</a>
+      <a href="#">JTP</a>
     </div>
 
     <ul class="sidebar-menu">  

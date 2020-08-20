@@ -1,7 +1,7 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; AMBIL 2020 - Present</p>
+      <p class="m-0 text-center text-white">Copyright &copy; JARTOP 2020 - Present</p>
     </div>
     <!-- /.container -->
   </footer>

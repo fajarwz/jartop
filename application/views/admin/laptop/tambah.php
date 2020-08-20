@@ -27,48 +27,78 @@
               </div>
 
               <div class="form-group required">
-                <label for="id_tipe" class="control-label">Tipe</label>
-                <select id="id_tipe" name="id_tipe" class="custom-select">
-                  <?php foreach($tipe as $tp) : ?>
-                    <option value="<?php echo $tp->id ?>"><?php echo $tp->nama ?></option>
-                  <?php endforeach ?>
+                <label for="processor" class="control-label">Processor</label>
+                <input type="text" class="form-control" id="processor" name="processor" value="<?php echo set_value('processor') ?>">
+                <?php echo form_error('processor', '<div class="text-small text-danger">', '</div>') ?>
+              </div>
+
+              <div class="form-group required">
+                <label for="storage" class="control-label">Storage</label>
+                <input type="text" class="form-control" id="storage" name="storage" value="<?php echo set_value('storage') ?>">
+                <?php echo form_error('storage', '<div class="text-small text-danger">', '</div>') ?>
+              </div>
+
+              <div class="form-group required">
+                <label for="ram" class="control-label">RAM</label>
+                <input type="text" class="form-control" id="ram" name="ram" value="<?php echo set_value('ram') ?>">
+                <?php echo form_error('ram', '<div class="text-small text-danger">', '</div>') ?>
+              </div>
+
+              <div class="form-group required">
+                <label for="vga" class="control-label">VGA</label>
+                <input type="text" class="form-control" id="vga" name="vga" value="<?php echo set_value('vga') ?>">
+                <?php echo form_error('vga', '<div class="text-small text-danger">', '</div>') ?>
+              </div>
+
+              <div class="form-group required">
+                <label for="ukuran_layar" class="control-label">Ukuran Layar</label>
+                <input type="text" class="form-control" id="ukuran_layar" name="ukuran_layar" value="<?php echo set_value('ukuran_layar') ?>">
+                <?php echo form_error('ukuran_layar', '<div class="text-small text-danger">', '</div>') ?>
+              </div>
+
+              <div class="form-group required">
+                <label for="os" class="control-label">OS</label>
+                <input type="text" class="form-control" id="os" name="os" value="<?php echo set_value('os') ?>">
+                <?php echo form_error('os', '<div class="text-small text-danger">', '</div>') ?>
+              </div>
+
+              <div class="form-group required">
+                <label for="port_usb" class="control-label">Port USB</label>
+                <input type="number" class="form-control" id="port_usb" name="port_usb" value="<?php echo set_value('port_usb') ?>">
+                <?php echo form_error('port_usb', '<div class="text-small text-danger">', '</div>') ?>
+              </div>
+
+              <div class="form-group required">
+                <label for="is_cd_rom" class="control-label">CD-ROM</label>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" name="is_cd_rom" id="Ya" value="Ya" checked> 
+                    <label for="Ya" class="form-check-label"> Ya</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" name="is_cd_rom" id="Tidak" value="Tidak">
+                    <label for="Tidak" class="form-check-label"> Tidak</label>
+                  </div>
+                <?php echo form_error('is_cd_rom', '<div class="text-small text-danger">', '</div>') ?>
+              </div>
+
+              <div class="form-group required">
+                <label for="daya_tahan_baterai" class="control-label">Daya Tahan Baterai</label>
+                <select id="daya_tahan_baterai" name="daya_tahan_baterai" class="custom-select">
+                  <option value="< 1 Jam" selected>< 1 Jam</option>
+                  <option value="1 Jam">1 Jam</option>
+                  <option value="2 Jam">2 Jam</option>
+                  <option value="3 Jam">3 Jam</option>
+                  <option value="> 3 Jam">> 3 Jam</option>
                 </select>
-                <?php echo form_error('id_tipe', '<div class="text-small text-danger">', '</div>') ?>
-              </div>
-
-              <div class="form-group required">
-                <label for="kapasitas" class="control-label">Kapasitas</label>
-                <div class="input-group-prepend">
-                  <input type="text" class="form-control" id="kapasitas" name="kapasitas" value="<?php echo set_value('kapasitas') ?>">
-                  <span class="input-group-text" id="basic-addon1">orang</span>
-                </div>
-                <?php echo form_error('kapasitas', '<div class="text-small text-danger">', '</div>') ?>
-              </div>
-
-              <div class="form-group required">
-                <label for="no_plat" class="control-label">No. Plat</label>
-                <input type="text" class="form-control" id="no_plat" name="no_plat" value="<?php echo set_value('no_plat') ?>">
-                <?php echo form_error('no_plat', '<div class="text-small text-danger">', '</div>') ?>
-              </div>
-
-              <div class="form-group required">
-                <label for="warna" class="control-label">Warna</label>
-                <input type="text" class="form-control" id="warna" name="warna" value="<?php echo set_value('warna') ?>">
-                <?php echo form_error('warna', '<div class="text-small text-danger">', '</div>') ?>
-              </div>
-
-              <div class="form-group required">
-                <label for="tahun" class="control-label">Tahun</label>
-                <input type="text" class="form-control" id="tahun" name="tahun" value="<?php echo set_value('tahun') ?>">
-                <?php echo form_error('tahun', '<div class="text-small text-danger">', '</div>') ?>
+                <?php echo form_error('daya_tahan_baterai', '<div class="text-small text-danger">', '</div>') ?>
               </div>
 
               <div class="form-group required">
                 <label for="harga_sewa" class="control-label">Harga Sewa</label>
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="harga_sewa" id="basic-addon1">Rp.</span>
-                  <input type="text" class="form-control" name="harga_sewa" value="<?php echo set_value('harga_sewa') ?>">
-                  <span class="input-group-text" id="basic-addon1">/jam</span>
+                    <input type="number" class="form-control" name="harga_sewa" value="<?php echo set_value('harga_sewa') ?>">
+                  <span class="input-group-text" id="basic-addon1">/hari</span>
                 </div>
                 <?php echo form_error('harga_sewa', '<div class="text-small text-danger">', '</div>') ?>
               </div>
@@ -76,15 +106,14 @@
               <div class="form-group required">
                 <label for="status" class="control-label">Status</label>
                 <select id="status" name="status" class="custom-select">
-                  <option value="" selected>Pilih Status...</option>
-                  <option value="1">Tersedia</option>
-                  <option value="0">Tidak Tersedia</option>
+                  <option value="Tersedia" selected>Tersedia</option>
+                  <option value="Tidak Tersedia">Tidak Tersedia</option>
                 </select>
                 <?php echo form_error('status', '<div class="text-small text-danger">', '</div>') ?>
               </div>
 
               <div class="form-group">
-                <label for="gambar" class="control-label">Foto</label>
+                <label for="image-need-preview" class="control-label">Foto</label>
 
                 <?php $this->load->view('templates_admin/includes/image_preview_container') ?>
           

@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>AMBIL</title>
+  <title>JARTOP</title>
 
   <!-- Bootstrap core CSS -->
   <link href="<?php echo base_url('assets/bs-shop')?>/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

@@ -38,39 +38,35 @@
 
         <div class="row">
 
-          <?php foreach($mobil as $mb) : ?>
+          <?php foreach($laptop as $lp) : ?>
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
 
                 <div class="card-img-container">
-                  <img class="card-img-top" src="<?php echo base_url('assets/upload/'.$mb->gambar) ?>" alt="<?php echo $mb->merk ?>">
+                  <img class="card-img-top" src="<?php echo base_url('assets/upload/'.$lp->gambar) ?>" alt="<?php echo $lp->merk ?>">
                 </div>
 
                 <div class="card-body">
                   <small>
                     <?php
-                      echo $mb->status == 1 ? 
+                      echo $lp->status === 'Tersedia' ? 
                       "<span class='badge badge-primary'>Tersedia</span>" : 
                       "<span class='badge badge-danger'>Tidak Tersedia</span>";
                     ?>
                   </small>
 
                   <h4 class="card-title">
-                    <a href="<?php echo base_url('customer/detail/data/').$mb->id ?>" class="stretched-link"><?php echo $mb->merk ?></a>
+                    <a href="<?php echo base_url('customer/detail/data/').$lp->id ?>" class="stretched-link"><?php echo $lp->merk ?></a>
                   </h4>
 
                   <p>
-                  <?php 
-                    foreach($tipe as $tp) : 
-                      if($mb->id_tipe == $tp->id) :
-                        echo $tp->nama;
-                      endif;
-                    endforeach; 
-                  ?> 
-                  | <?php echo $mb->kapasitas ?> orang
+                  <?php echo $lp->processor ?> 
+                  | <?php echo $lp->os ?> 
+                  | <?php echo $lp->storage ?> 
+                  | <?php echo $lp->ram ?> 
                   </p>
 
-                  <h5>Rp. <?php echo $mb->harga_sewa ?>/jam</h5>
+                  <h5>Rp. <?php echo $lp->harga_sewa ?>/hari</h5>
 
                 
                 </div>
