@@ -2,27 +2,31 @@
   <!-- Navbar -->
   <?php $this->load->view('templates_customer/navbar') ?>
 
-  <div class="jumbotron hero-main text-white align-items-center" style="background-image: url(<?php echo base_url('assets/upload/bg1.jpg') ?>);">
+  <div class="jumbotron text-white d-flex align-items-center hero-main" style="background-image: url(<?php echo base_url('assets/upload/bg1.jpg') ?>);">
 
+    <div class="container">
+    
       <div class="row">
-        <div class="col">
-          <h1 class="display-4">Tinggalkan Laptop Kentang</h1>
+          <div class="col">
+            <h1 class="hero-title">Tinggalkan Laptop Kentang</h1>
+          </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col">
-          <p class="lead">Kamu bisa dapat laptop dengan spek yang kamu mau tanpa harus keluar biaya banyak.</p>
+        <div class="row">
+          <div class="col">
+            <p class="hero-sub-title">Kamu bisa dapat laptop dengan spek yang kamu mau tanpa harus keluar biaya banyak.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col">
-        <p class="lead">
-          <a class="btn btn-primary btn-lg" href="#laptop-main" role="button">Cek Laptop</a>
-        </p>
+        <div class="row">
+          <div class="col">
+          <p class="hero-cta">
+            <a class="btn btn-primary btn-lg" href="#laptop-main" role="button">Cek Laptop</a>
+          </p>
+          </div>
         </div>
-      </div>
+
+    </div>
 
   </div>
 
