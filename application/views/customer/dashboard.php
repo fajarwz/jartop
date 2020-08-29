@@ -53,7 +53,7 @@
               </small>
 
               <h4 class="card-title">
-                <a href="<?php echo base_url('customer/detail/data/').$lp->id ?>" class="stretched-link"><?php echo $lp->merk ?></a>
+                <a href="<?php echo base_url('detail/data/').$lp->id ?>" class="stretched-link"><?php echo $lp->merk ?></a>
               </h4>
 
               <p>
