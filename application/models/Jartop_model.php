@@ -26,15 +26,18 @@ class jartop_model extends CI_Model {
 		return $this->db->get($table);
 	}
 
-	public function jadi_tidak_bertipe($table, $id_tipe) {
-		$this->db->where('id_tipe', $id_tipe);
-
-		$data = array(
-			'id_tipe' => '1'
-		);
-
-		$this->db->set($data);
-		return $this->db->update($table);
+	public function get_data_where($table, $where){		
+		return $this->db->get_where($table, $where);
 	}
+
+	public function select_data_where($table, $select, $where) {
+		$this->db->select($select);
+		$this->db->where($where); 
+		return $this->db->get($table);
+	}
+
+	// public function cek_login($table, $where){		
+	// 	return $this->db->get_where($table, $where);
+	// }
 	
 }

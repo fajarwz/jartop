@@ -11,7 +11,7 @@
       <li><a class="nav-link" href="<?php echo base_url('admin/dashboard')?>" title="Dashboard">
         <i class="fas fa-pencil-ruler"></i> <span>Dashboard</span></a>
       </li>
-      <li><a class="nav-link" href="<?php echo base_url('admin/laptop/index')?>" title="Data Laptop">
+      <li><a class="nav-link" href="<?php echo base_url('admin/laptop')?>" title="Data Laptop">
         <i class="fas fa-car"></i> <span>Data Laptop</span></a>
       </li>
       <li><a class="nav-link" href="<?php echo base_url('admin/customer')?>" title="Data Customer">
