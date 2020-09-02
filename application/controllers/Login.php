@@ -4,6 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends CI_Controller {
 
 	public function index() {
+		if($this->session->has_userdata('logged_in')) {
+			return redirect(base_url("/"));
+		}
 		$this->load->view('templates_customer/header');
 		$this->load->view('customer/login');
 		$this->load->view('templates_customer/footer');
@@ -28,7 +31,12 @@ class Login extends CI_Controller {
 
 			$cek_akun_di_db = $this->jartop_model->get_data_where('customer', $where)->num_rows();
 
-			$user = $this->jartop_model->select_data_where('customer', 'nama', $where)->row();
+			$select = array(
+				'id',
+				'nama'
+			);
+
+			$user = $this->jartop_model->select_data_where('customer', $select, $where)->row();
 
 			// $this->jartop_model->get_data_with_id('customer', $where)->num_rows();
 			// $data['laptop']	= $this->jartop_model->get_data_with_id('laptop', $id)->result();

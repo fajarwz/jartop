@@ -38,7 +38,27 @@ class Register extends CI_Controller {
 
 			if($this->jartop_model->insert_data('customer', $data)){
 				$this->flash_success();
-				redirect('login');
+
+				$where = array(
+					'username' => $data['username'],
+					'password' => $data['password']
+				);
+	
+				$select = array(
+					'id',
+					'nama'
+				);
+	
+				$user = $this->jartop_model->select_data_where('customer', $select, $where)->row();
+
+				$data_session = array(
+					'id'				=> $user->id,
+					'nama' 			=> $user->nama
+				);
+	 
+				$add_session = $this->session->set_userdata('logged_in', $data_session);
+
+				redirect('/');
 			}
 		}
 	}

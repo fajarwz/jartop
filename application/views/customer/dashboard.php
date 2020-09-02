@@ -2,6 +2,15 @@
   <!-- Navbar -->
   <?php $this->load->view('templates_customer/navbar') ?>
 
+  <?php if ($this->session->flashdata('pesan')) : ?>
+    <div class="flash-message">
+      <p class="alert alert-success">
+        <?php echo $this->session->flashdata('pesan') ?>
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      </p>
+    </div>
+  <?php endif; ?>
+
   <div class="jumbotron text-white d-flex align-items-center hero-main" style="background-image: url(<?php echo base_url('assets/upload/bg1.jpg') ?>);">
 
     <div class="container">
