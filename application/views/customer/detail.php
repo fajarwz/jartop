@@ -7,12 +7,10 @@
 
     <div class="row my-4">
 
-      <?php foreach($laptop as $lp) : ?>
-
         <div class="col-lg-5 col-md-6 col-12">
           <img 
-            src="<?php echo base_url('assets/upload/'.$lp->gambar)?>" 
-            alt="<?php echo $lp->gambar?>" 
+            src="<?php echo base_url('assets/upload/'.$laptop->gambar)?>" 
+            alt="<?php echo $laptop->gambar?>" 
             class="img-fluid"
           >
         </div>
@@ -26,16 +24,16 @@
                 <!-- <strong>Tipe</strong> -->
                 <p>
                 <?php
-                  echo $lp->status === 'Tersedia' ? 
+                  echo $laptop->status === 'Tersedia' ? 
                   "<span class='badge badge-primary'>Tersedia</span>" : 
                   "<span class='badge badge-danger'>Tidak Tersedia</span>";
                 ?>
                 </p>
 
-                <h3><?php echo $lp->merk ?></h3>
-                <p><?php echo $lp->processor ?></p>
+                <h3><?php echo $laptop->merk ?></h3>
+                <p><?php echo $laptop->processor ?></p>
 
-                <h4 class="text-primary">Rp. <?php echo $lp->harga_sewa ?>/hari</h4>
+                <h4 class="text-primary">Rp. <?php echo $laptop->harga_sewa ?>/hari</h4>
 
               </div>
 
@@ -51,7 +49,7 @@
               </div>
 
               <div class="col-lg-6">
-                <?php echo $lp->os ?>
+                <?php echo $laptop->os ?>
               </div>
 
             </div>
@@ -66,7 +64,7 @@
               </div>
 
               <div class="col-lg-6">
-                <?php echo $lp->storage ?>
+                <?php echo $laptop->storage ?>
               </div>
 
             </div>
@@ -81,7 +79,7 @@
               </div>
 
               <div class="col-lg-6">
-                <?php echo $lp->ram ?>
+                <?php echo $laptop->ram ?>
               </div>
 
             </div>
@@ -96,7 +94,7 @@
               </div>
 
               <div class="col-lg-6">
-                <?php echo $lp->vga ?>
+                <?php echo $laptop->vga ?>
               </div>
 
             </div>
@@ -111,7 +109,7 @@
               </div>
 
               <div class="col-lg-6">
-                <?php echo $lp->ukuran_layar ?>
+                <?php echo $laptop->ukuran_layar ?>
               </div>
 
             </div>
@@ -126,7 +124,7 @@
               </div>
 
               <div class="col-lg-6">
-                <?php echo $lp->port_usb ?>
+                <?php echo $laptop->port_usb ?>
               </div>
 
             </div>
@@ -141,7 +139,7 @@
               </div>
 
               <div class="col-lg-6">
-                <?php echo $lp->is_cd_rom ?>
+                <?php echo $laptop->is_cd_rom ?>
               </div>
 
             </div>
@@ -156,7 +154,7 @@
               </div>
 
               <div class="col-lg-6">
-                <?php echo $lp->daya_tahan_baterai ?>
+                <?php echo $laptop->daya_tahan_baterai ?>
               </div>
 
             </div>
@@ -176,8 +174,6 @@
           </div>
 
         </div>
-
-      <?php endforeach ?>
 
     </div>
     <!-- /.row -->

@@ -80,7 +80,7 @@ class Laptop extends CI_Controller {
 	}
 
 	public function edit($id) {
-		$data['laptop']	= $this->jartop_model->get_data_with_id('laptop', $id)->result();
+		$data['laptop']	= $this->jartop_model->get_data_with_id('laptop', $id)->row();
 		$this->load->view('templates_admin/header');
 		$this->load->view('templates_admin/navbar');
 		$this->load->view('admin/laptop/edit', $data);
@@ -154,7 +154,7 @@ class Laptop extends CI_Controller {
 	}
 
 	public function detail($id) {
-		$data['laptop']	= $this->jartop_model->get_data_with_id('laptop', $id)->result();
+		$data['laptop']	= $this->jartop_model->get_data_with_id('laptop', $id)->row();
 		$this->load->view('templates_admin/header');
 		$this->load->view('templates_admin/navbar');
 		$this->load->view('admin/laptop/detail', $data);

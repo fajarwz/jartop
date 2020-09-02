@@ -19,14 +19,13 @@
 
                   <table class="table table-bordered" width="100%" cellspacing="0">
                       <thead>
-                        <?php foreach($laptop as $lp) : ?>
 
                           <tr>
                             <th>Gambar</th>
                             <td>
                               <img 
-                                src="<?php echo base_url('assets/upload/'.$lp->gambar)?>" 
-                                alt="<?php echo $lp->gambar?>" 
+                                src="<?php echo base_url('assets/upload/'.$laptop->gambar)?>" 
+                                alt="<?php echo $laptop->gambar?>" 
                                 class="img-fluid"
                               >
                             </td>
@@ -34,64 +33,64 @@
 
                           <tr>
                             <th>Merk</th>
-                            <td><?php echo $lp->merk ?></td>
+                            <td><?php echo $laptop->merk ?></td>
                           </tr>
 
                           <tr>
                             <th>Processor</th>
-                            <td><?php echo $lp->processor ?></td>
+                            <td><?php echo $laptop->processor ?></td>
                           </tr>
 
                           <tr>
                             <th>Storage</th>
-                            <td><?php echo $lp->storage ?></td>
+                            <td><?php echo $laptop->storage ?></td>
                           </tr>
                             
                           <tr>
                             <th>RAM</th>
-                            <td><?php echo $lp->ram ?></td>
+                            <td><?php echo $laptop->ram ?></td>
                           </tr>
                             
                           <tr>
                             <th>VGA</th>
-                            <td><?php echo $lp->vga ?></td>
+                            <td><?php echo $laptop->vga ?></td>
                           </tr>
 
                           <tr>
                             <th>Ukuran Layar</th>
-                            <td><?php echo $lp->ukuran_layar ?></td>
+                            <td><?php echo $laptop->ukuran_layar ?></td>
                           </tr>
 
                           <tr>
                             <th>OS</th>
-                            <td><?php echo $lp->os ?></td>
+                            <td><?php echo $laptop->os ?></td>
                           </tr>
 
                           <tr>
                             <th>Port USB</th>
-                            <td><?php echo $lp->port_usb ?></td>
+                            <td><?php echo $laptop->port_usb ?></td>
                           </tr>
 
                           <tr>
                             <th>CD-ROM</th>
-                            <td><?php echo $lp->is_cd_rom ?></td>
+                            <td><?php echo $laptop->is_cd_rom ?></td>
                           </tr>
 
                           <tr>
                             <th>Daya Tahan Baterai</th>
-                            <td><?php echo $lp->daya_tahan_baterai ?></td>
+                            <td><?php echo $laptop->daya_tahan_baterai ?></td>
                           </tr>
                             
                           <tr>
                             <th>Harga Sewa</th>
-                            <td>Rp. <?php echo $lp->harga_sewa ?>/hari</td>
+                            <td>Rp. <?php echo $laptop->harga_sewa ?>/hari</td>
                           </tr>
 
                           <tr>
                             <th>Status</th>
                             <td>
                               <?php
-                                echo $lp->status === "Tersedia" ? 
+                                echo $laptop->status === "Tersedia" ? 
                                 "<span class='badge badge-primary'>Tersedia</span>" : 
                                 "<span class='badge badge-danger'>Tidak Tersedia</span>";
                               ?>
@@ -102,22 +101,21 @@
                             <th style="width: 180px;">Action</th>
                             <td>
 
-                              <a href="<?php echo base_url('admin/laptop/detail/'.$lp->id) ?>" class="btn btn-info" title="Detail">
+                              <a href="<?php echo base_url('admin/laptop/detail/'.$laptop->id) ?>" class="btn btn-info" title="Detail">
                                 <i class="fa fa-eye"></i>
                               </a>
 
-                              <a href="<?php echo base_url('admin/laptop/edit/'.$lp->id) ?>" class="btn btn-primary" title="Edit">
+                              <a href="<?php echo base_url('admin/laptop/edit/'.$laptop->id) ?>" class="btn btn-primary" title="Edit">
                                 <i class="fa fa-pencil-alt"></i>
                               </a>
 
-                              <a href="<?php echo base_url('admin/laptop/hapus/'.$lp->id) ?>" class="btn btn-danger" title="Hapus">
+                              <a href="<?php echo base_url('admin/laptop/hapus/'.$laptop->id) ?>" class="btn btn-danger" title="Hapus">
                                 <i class="fa fa-trash"></i>
                               </a>
 
                             </td>
                           </tr>
                         </tr>
-                        <?php endforeach ?>
                       </thead>
                       
                     </table>
