@@ -6,7 +6,7 @@
 
       <div class="container">
         <div class="row justify-content-center">
-          <div class="card col-lg-6 col-sm-8 col-10">
+          <div class="card col-lg-4 col-sm-6 col-10">
             <div class="card-header bg-white">
               <h4>Login</h4>
               <small>Silakan isi form di bawah ini.</small>
@@ -17,10 +17,7 @@
 
                 <div class="form-group required">
                   <label for="username" class="control-label">Username</label>
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">@</span>
-                    <input type="text" class="form-control" id="username" name="username" value="<?php echo set_value('username') ?>" autofocus>
-                  </div>
+                  <input type="text" class="form-control" id="username" name="username" value="<?php echo set_value('username') ?>" autofocus>
                   <?php echo form_error('username', '<div class="text-small text-danger">', '</div>') ?>
                 </div>
 

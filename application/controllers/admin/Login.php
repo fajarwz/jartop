@@ -3,20 +3,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
 
-	public function __construct()
-	{
-		parent::__construct();
-		$cek_session_user = $this->session->has_userdata('logged_in');
-
-		if($cek_session_user) {
-			return redirect(base_url("/"));
-		}
-	}
+	// public function __construct()
+	// {
+	// 	parent::__construct();
+	// 	if($this->session->has_userdata('admin_logged_in')) {
+	// 		return redirect(base_url("/admin"));
+	// 	}
+	// }
 
 	public function index() {
-		$this->load->view('templates_customer/header');
-		$this->load->view('customer/login');
-		$this->load->view('templates_customer/footer');
+		$cek_session_admin = $this->session->has_userdata('admin_logged_in');
+
+		if($cek_session_admin) {
+			return redirect(base_url("/admin"));
+		}
+		$this->load->view('templates_admin/header');
+		$this->load->view('admin/login');
+		// $this->load->view('templates_admin/footer');
 	}
 
 	public function login_aksi() {
@@ -36,14 +39,14 @@ class Login extends CI_Controller {
 				'password' => md5($password)
 			);
 
-			$cek_akun_di_db = $this->jartop_model->get_data_where('customer', $where)->num_rows();
+			$cek_akun_di_db = $this->jartop_model->get_data_where('admin', $where)->num_rows();
 
 			$select = array(
 				'id',
 				'nama'
 			);
 
-			$user = $this->jartop_model->select_data_where('customer', $select, $where)->row();
+			$user = $this->jartop_model->select_data_where('admin', $select, $where)->row();
 
 			// $this->jartop_model->get_data_with_id('customer', $where)->num_rows();
 			// $data['laptop']	= $this->jartop_model->get_data_with_id('laptop', $id)->result();
@@ -55,9 +58,10 @@ class Login extends CI_Controller {
 					'nama' 			=> $user->nama
 				);
 	 
-				$add_session = $this->session->set_userdata('logged_in', $data_session);
+				$add_session = $this->session->set_userdata('admin_logged_in', $data_session);
 	 
-				redirect(base_url("/"));
+				$this->flash_success_login();
+				return redirect(base_url("/admin"));
 	 
 			} else{
 				echo "Username atau password salah!";
@@ -66,8 +70,10 @@ class Login extends CI_Controller {
 	}
 
 	public function logout() {
-		$remove_session = $this->session->unset_userdata('logged_in');
-		redirect(base_url("/"));
+		$remove_session = $this->session->unset_userdata('admin_logged_in');
+
+		$this->flash_success_logout();
+		return redirect(base_url("/admin/login"));
 	}
 
 	public function custom_rules() {
@@ -79,8 +85,12 @@ class Login extends CI_Controller {
 		$this->form_validation->set_message('required', '%s wajib diisi!');
 	}
 
-	public function flash_success() {
+	public function flash_success_login() {
 		$this->session->set_flashdata('pesan', 'Login berhasil!');
+	}
+
+	public function flash_success_logout() {
+		$this->session->set_flashdata('pesan', 'Logout berhasil!');
 	}
 	
 }
