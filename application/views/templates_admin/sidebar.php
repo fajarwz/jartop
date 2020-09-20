@@ -23,9 +23,6 @@
       <li><a class="nav-link" href="<?php echo base_url('admin/report')?>" title="Laporan">
         <i class="fas fa-clipboard-list"></i> <span>Laporan</span></a>
       </li>
-      <li><a class="nav-link" href="<?php echo base_url('admin/login/logout')?>" title="Logout">
-        <i class="fas fa-sign-out-alt"></i> <span>Logout</span></a>
-      </li>
     </ul>
 
   </aside>

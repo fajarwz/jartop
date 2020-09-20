@@ -8,40 +8,34 @@
               JARTOP
             </div>
 
-            <?php if ($this->session->flashdata('pesan')) : ?>
-                <div class="flash-message">
-                  <p class="alert alert-success">
-                    <?php echo $this->session->flashdata('pesan') ?>
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                  </p>
-                </div>
-              <?php endif; ?>
-
             <div class="card card-primary">
               <div class="card-header"><h4>Login</h4></div>
 
               <div class="card-body">
-                <form method="POST" action="<?php echo base_url('admin/login/login_aksi') ?>" class="needs-validation" novalidate="">
+
+                <?php if ($this->session->flashdata('pesan')) : ?>
+                  <div class="flash-message">
+                    <p class="alert alert-<?php echo $this->session->flashdata('tipe-pesan') ?>">
+                      <?php echo $this->session->flashdata('pesan') ?>
+                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    </p>
+                  </div>
+                <?php endif; ?>
+
+                <form method="POST" action="<?php echo base_url('admin/login/login_aksi') ?>">
                   <div class="form-group">
                     <label for="username">Username</label>
-                    <input id="username" type="text" class="form-control" name="username" tabindex="1" required autofocus>
+                    <input id="username" type="text" class="form-control" name="username" tabindex="1" autofocus>
                     <div class="invalid-feedback">
-                      Please fill in your username
+                      <?php echo form_error('username', '<div class="text-small text-danger">', '</div>') ?>
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <div class="d-block">
-                    	<label for="password" class="control-label">Password</label>
-                      <div class="float-right">
-                        <a href="auth-forgot-password.html" class="text-small">
-                          Forgot Password?
-                        </a>
-                      </div>
-                    </div>
-                    <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                    <label for="password" class="control-label">Password</label>
+                    <input id="password" type="password" class="form-control" name="password" tabindex="2">
                     <div class="invalid-feedback">
-                      please fill in your password
+                      <?php echo form_error('password', '<div class="text-small text-danger">', '</div>') ?>
                     </div>
                   </div>
 

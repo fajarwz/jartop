@@ -13,17 +13,26 @@
             </div>
             <div class="card-body">
 
+              <?php if ($this->session->flashdata('pesan')) : ?>
+                <div class="flash-message">
+                  <p class="alert alert-danger">
+                    <?php echo $this->session->flashdata('pesan') ?>
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  </p>
+                </div>
+              <?php endif; ?>
+
               <form action="<?php echo base_url('login/login_aksi') ?>" method="POST">
 
                 <div class="form-group required">
                   <label for="username" class="control-label">Username</label>
-                  <input type="text" class="form-control" id="username" name="username" value="<?php echo set_value('username') ?>" autofocus>
+                  <input type="text" class="form-control" id="username" name="username" value="<?php echo set_value('username') ?>" tabindex="1" autofocus>
                   <?php echo form_error('username', '<div class="text-small text-danger">', '</div>') ?>
                 </div>
 
                 <div class="form-group required">
                   <label for="password" class="control-label">Password</label>
-                  <input type="password" class="form-control" id="password" name="password" value="<?php echo set_value('password') ?>" autofocus>
+                  <input type="password" class="form-control" id="password" name="password" value="<?php echo set_value('password') ?>" tabindex="2">
                   <?php echo form_error('password', '<div class="text-small text-danger">', '</div>') ?>
                 </div>
 

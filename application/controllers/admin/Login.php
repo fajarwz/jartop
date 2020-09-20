@@ -3,23 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
 
-	// public function __construct()
-	// {
-	// 	parent::__construct();
-	// 	if($this->session->has_userdata('admin_logged_in')) {
-	// 		return redirect(base_url("/admin"));
-	// 	}
-	// }
-
 	public function index() {
 		$cek_session_admin = $this->session->has_userdata('admin_logged_in');
 
 		if($cek_session_admin) {
 			return redirect(base_url("/admin"));
 		}
+
 		$this->load->view('templates_admin/header');
 		$this->load->view('admin/login');
-		// $this->load->view('templates_admin/footer');
 	}
 
 	public function login_aksi() {
@@ -29,7 +21,7 @@ class Login extends CI_Controller {
 		$form_tidak_valid = $this->form_validation->run() === FALSE;
 
 		if($form_tidak_valid) {
-			$this->login();
+			$this->index();
 		} else {
 			$username							= $this->input->post('username');
 			$password							= $this->input->post('password');
@@ -48,9 +40,6 @@ class Login extends CI_Controller {
 
 			$user = $this->jartop_model->select_data_where('admin', $select, $where)->row();
 
-			// $this->jartop_model->get_data_with_id('customer', $where)->num_rows();
-			// $data['laptop']	= $this->jartop_model->get_data_with_id('laptop', $id)->result();
-			
 			if($cek_akun_di_db > 0){
 				// akun ada 
 				$data_session = array(
@@ -58,13 +47,15 @@ class Login extends CI_Controller {
 					'nama' 			=> $user->nama
 				);
 	 
-				$add_session = $this->session->set_userdata('admin_logged_in', $data_session);
+				$remove_customer_session = $this->session->unset_userdata('logged_in');
+				$add_admin_session = $this->session->set_userdata('admin_logged_in', $data_session);
 	 
 				$this->flash_success_login();
 				return redirect(base_url("/admin"));
 	 
 			} else{
-				echo "Username atau password salah!";
+				$this->flash_failed_login();
+				redirect(base_url("/admin/login"));
 			}
 		}
 	}
@@ -87,10 +78,17 @@ class Login extends CI_Controller {
 
 	public function flash_success_login() {
 		$this->session->set_flashdata('pesan', 'Login berhasil!');
+		$this->session->set_flashdata('tipe-pesan', 'success');
+	}
+
+	public function flash_failed_login() {
+		$this->session->set_flashdata('pesan', 'Username atau password salah!');
+		$this->session->set_flashdata('tipe-pesan', 'danger');
 	}
 
 	public function flash_success_logout() {
 		$this->session->set_flashdata('pesan', 'Logout berhasil!');
+		$this->session->set_flashdata('tipe-pesan', 'success');
 	}
 	
 }

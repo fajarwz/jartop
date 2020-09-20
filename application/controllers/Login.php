@@ -3,17 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
 
-	public function __construct()
-	{
-		parent::__construct();
+	public function index() {
 		$cek_session_user = $this->session->has_userdata('logged_in');
 
 		if($cek_session_user) {
 			return redirect(base_url("/"));
 		}
-	}
 
-	public function index() {
 		$this->load->view('templates_customer/header');
 		$this->load->view('customer/login');
 		$this->load->view('templates_customer/footer');
@@ -26,7 +22,7 @@ class Login extends CI_Controller {
 		$form_tidak_valid = $this->form_validation->run() === FALSE;
 
 		if($form_tidak_valid) {
-			$this->login();
+			$this->index();
 		} else {
 			$username							= $this->input->post('username');
 			$password							= $this->input->post('password');
@@ -55,12 +51,14 @@ class Login extends CI_Controller {
 					'nama' 			=> $user->nama
 				);
 	 
-				$add_session = $this->session->set_userdata('logged_in', $data_session);
+				$remove_admin_session = $this->session->unset_userdata('admin_logged_in');
+				$add_customer_session = $this->session->set_userdata('logged_in', $data_session);
 	 
 				redirect(base_url("/"));
 	 
 			} else{
-				echo "Username atau password salah!";
+				$this->flash_failed();
+				redirect(base_url("/login"));
 			}
 		}
 	}
@@ -81,6 +79,10 @@ class Login extends CI_Controller {
 
 	public function flash_success() {
 		$this->session->set_flashdata('pesan', 'Login berhasil!');
+	}
+
+	public function flash_failed() {
+		$this->session->set_flashdata('pesan', 'Username atau password salah!');
 	}
 	
 }

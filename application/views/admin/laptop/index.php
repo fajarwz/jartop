@@ -36,7 +36,7 @@
                     <th>OS</th>
                     <th>Harga Sewa</th>
                     <th>Status</th>
-                    <th>Action</th>
+                    <th class="btn-action-3">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -63,7 +63,7 @@
                       ?>
                     </td>
 
-                    <td class="btn-action-3">
+                    <td>
 
                       <a href="<?php echo base_url('admin/laptop/detail/'.$lp->id) ?>" class="btn btn-sm btn-info" title="Detail">
                         <i class="fa fa-eye fa-sm fa-fw"></i>

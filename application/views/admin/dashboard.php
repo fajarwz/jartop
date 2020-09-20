@@ -9,6 +9,7 @@
           <div class="flash-message">
             <p class="alert alert-success">
               <?php echo $this->session->flashdata('pesan') ?>
+              <?php echo 'Selamat datang, '.$this->session->userdata['admin_logged_in']['nama'].'!' ?>
               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             </p>
           </div>
