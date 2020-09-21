@@ -26,17 +26,13 @@
                   <div class="form-group">
                     <label for="username">Username</label>
                     <input id="username" type="text" class="form-control" name="username" tabindex="1" autofocus>
-                    <div class="invalid-feedback">
-                      <?php echo form_error('username', '<div class="text-small text-danger">', '</div>') ?>
-                    </div>
+                    <?php echo form_error('username', '<div class="text-small text-danger">', '</div>')?>
                   </div>
 
                   <div class="form-group">
-                    <label for="password" class="control-label">Password</label>
+                    <label for="password">Password</label>
                     <input id="password" type="password" class="form-control" name="password" tabindex="2">
-                    <div class="invalid-feedback">
-                      <?php echo form_error('password', '<div class="text-small text-danger">', '</div>') ?>
-                    </div>
+                    <?php echo form_error('password', '<div class="text-small text-danger">', '</div>') ?>
                   </div>
 
                   <div class="form-group">
